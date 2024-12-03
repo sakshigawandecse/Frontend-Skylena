@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="Stylenavbar.css">
+    <title>Skylena</title>
+    <link rel="icon" type="image/png" href="Images/logo.png">
+<body>
+
+<!-- Form box -->
+<div class="auth-page">
+    <div class="form-box">
+        <!-- Login Form -->
+        <div class="login-container" id="login">
+            <div class="top">
+                <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
+                <header>Login</header>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Username or Email" id="loginUsername" autocomplete="off">
+                <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password" id="loginPassword" autocomplete="off">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="button" class="submit" value="Sign In" id="loginBtn">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="login-check">
+                    <label for="login-check"> Remember Me</label>
+                </div>
+                <div class="two">
+                    <label><a href="#">Forgot password?</a></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="register-container" id="register">
+            <div class="top">
+                <span>Have an account? <a href="#" onclick="login()">Login</a></span>
+                <header>Sign Up</header>
+            </div>
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Firstname" id="firstname" required>
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Lastname" id="lastname" required>
+                    <i class="bx bx-user"></i>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Email" id="email" required>
+                <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password" id="password" required>
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="button" class="submit" value="Register" id="registerBtn">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="register-check">
+                    <label for="register-check"> Remember Me</label>
+                </div>
+                <div class="two">
+                    <label><a href="#">Terms & conditions</a></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success/Error Message Display -->
+        <div id="message" style="display: none;"></div>
+    </div>
+</div>
+
+<!-- OTP Container with Overlay -->
+<div class="overlay" id="overlay">
+    <div class="otp-box" id="otp-container">
+        <header>Verify OTP</header>
+
+        <!-- Message Display (For Success/Error Messages) -->
+        <div id="otpMessage" class="otp-message"></div>
+
+        <!-- OTP Input Box -->
+        <div class="input-box">
+            <input type="text" class="otp-input" placeholder="Enter OTP" id="otp" required>
+            <i class="bx bx-key"></i>
+        </div>
+        <div id="countdown" style="color: red; font-size: 16px; margin-top: 10px;"></div>
+
+        <!-- Verify OTP Button -->
+        <div class="input-box">
+            <input type="button" class="submit" value="Verify OTP" id="verifyOtpBtn">
+        </div>
+
+        <!-- Resend Link -->
+        <div class="resend-container">
+            <span>Didn’t receive a code? <a href="#" id="resendOtpLink">Resend</a></span>
+        </div>
+    </div>
+</div>
+
+<script>
+    var loginContainer = document.getElementById("login");
+    var registerContainer = document.getElementById("register");
+    var otpContainer = document.getElementById("otp-container");
+    var overlay = document.getElementById("overlay");
+
+    function login() {
+        loginContainer.style.left = "4px";
+        registerContainer.style.right = "-520px";
+        loginContainer.style.opacity = 1;
+        registerContainer.style.opacity = 0;
+    }
+
+    function register() {
+        loginContainer.style.left = "-510px";
+        registerContainer.style.right = "5px";
+        loginContainer.style.opacity = 0;
+        registerContainer.style.opacity = 1;
+    }
+
+    function showMessage(message, type) {
+        const msgElement = document.getElementById('message');
+        msgElement.textContent = message;
+        msgElement.className = type;
+        msgElement.style.display = 'block';
+
+        setTimeout(() => {
+            msgElement.style.display = 'none';
+        }, 4000);
+    }
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('otp').value = ''; // Clear OTP input on page load
+    });
+
+    // Hide OTP container on outside click
+    overlay.addEventListener('click', function (event) {
+        if (!otpContainer.contains(event.target)) {
+            overlay.style.display = 'none'; // Hide overlay if click is outside the OTP container
+        }
+    });
+
+   // <!--------------------------Registration --------------------------->
+    document.getElementById('registerBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const firstname = document.getElementById('firstname').value;
+        const lastname = document.getElementById('lastname').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const data = { firstname, lastname, email, password };
+
+        fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(data => showMessage(data.message, 'success'))
+        .catch(error => showMessage('Registration failed! ' + error.message, 'error'));
+    });
+
+
+   // <!-- --------------------------login--------------------------->
+
+   document.addEventListener('DOMContentLoaded', () => {
+        // Clear the username or email input field on page load
+        document.getElementById('loginUsername').value = '';
+
+        // Clear the OTP input on overlay display
+        document.getElementById('loginBtn').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const data = { username, password };
+
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json().then(data => ({ status: response.status, body: data })))
+            .then(({ status, body }) => {
+                if (status === 200) {
+                    document.getElementById('otp').value = ''; // Clear OTP input when overlay is displayed
+                    overlay.style.display = 'flex'; // Show OTP overlay
+
+                    const otpMessageElement = document.getElementById('otpMessage');
+                    otpMessageElement.textContent = 'OTP sent to your email!';
+                    otpMessageElement.style.color = 'green';
+                    otpMessageElement.style.display = 'block';
+
+                    startCountdown(); 
+                } else {
+                    showMessage('Login failed! ' + body.message, 'error');
+                }
+            })
+            .catch(error => showMessage('Login failed! ' + error.message, 'error'));
+        });
+    });
+
+    //  <!-- --------------------------OTP --------------------------->
+
+    document.getElementById('verifyOtpBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const otp = document.getElementById('otp').value;
+        const email = document.getElementById('loginUsername').value;
+        const data = { email, otp };
+
+        fetch('http://localhost:3000/verify-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json().then(data => ({ status: response.status, body: data })))
+        .then(({ status, body }) => {
+            const otpMessageElement = document.getElementById('otpMessage');
+            if (status === 200) {
+                otpMessageElement.textContent = 'OTP verified!';
+                otpMessageElement.style.color = 'green';
+                overlay.style.display = 'none'; // Hide overlay after successful OTP verification
+                setTimeout(() => {
+                    window.location.href = 'https://www.netflix.com/in/';
+                }, 1000);
+            } else {
+                otpMessageElement.textContent = 'OTP verification failed! ' + body.message;
+                otpMessageElement.style.color = 'red';
+            }
+        })
+        .catch(error => {
+            const otpMessageElement = document.getElementById('otpMessage');
+            otpMessageElement.textContent = 'OTP verification failed! ' + error.message;
+            otpMessageElement.style.color = 'red';
+        });
+    });
+
+    let countdownInterval;
+
+    function startCountdown() {
+    let timeLeft = 30; // Set countdown time to 30 seconds
+    const countdownDisplay = document.getElementById("countdown");
+    countdownDisplay.style.display = "block"; // Show the countdown display
+
+    clearInterval(countdownInterval);
+
+    countdownInterval = setInterval(() => {
+        countdownDisplay.innerText = `Time left: ${timeLeft} seconds`;
+        
+        if (timeLeft <= 0) {
+            clearInterval(countdownInterval);
+            countdownDisplay.innerText = "Time expired";
+            // Add any additional actions for expired countdown
+        } else {
+            timeLeft -= 1; // Decrease the time left
+        }
+    }, 1000); // Update every second
+}
+
+
+
+
+//-----------------------------Resend Otp-----------------------------------//
+    document.getElementById('resendOtpLink').addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('loginUsername').value; // Get the email from the username field
+    if (!email) {
+        showMessage('Please enter your email to resend OTP.', 'error');
+        return;
+    }
+
+    // Call the resend OTP API
+    fetch('http://localhost:3000/resend-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }) // Send the email in the body
+    })
+    .then(response => response.json().then(data => ({ status: response.status, body: data })))
+    .then(({ status, body }) => {
+        if (status === 200) {
+            // OTP sent successfully
+            const otpMessageElement = document.getElementById('otpMessage');
+            otpMessageElement.textContent = body.message; // Display success message
+            otpMessageElement.style.color = 'green';
+            otpMessageElement.style.display = 'block';
+            startCountdown();
+        } else {
+            // Failed to send OTP
+            showMessage('Resending OTP failed! ' + body.message, 'error');
+        }
+    })
+    .catch(error => showMessage('Resending OTP failed! ' + error.message, 'error'));
+});
+
+</script>
+
+</body>
+</html>

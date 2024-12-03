@@ -1,0 +1,91 @@
+ /* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Container with background image */
+.container {
+    width: 100%;
+    height: 600px;
+    background-image: url('Images/Services/csc1.jpeg'); /* Use the uploaded image */
+    background-position: right center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: left;
+    color: white;
+    box-sizing: border-box;
+    padding: 5%;
+}
+
+.container h1 {
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Add text shadow for readability */
+    text-align: center;
+    
+}
+
+/* Article section */
+article {
+    width: 80%;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.6;
+}
+
+article h1 {
+    font-size: 32px;
+    color: #333;
+}
+
+article p {
+    font-size: 18px;
+    color: #555;
+    text-align: justify;
+}
+
+/* Image container */
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Styling for each image */
+.image-container img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 28px;
+        margin-top: 80px;
+    }
+
+    article {
+        width: 90%;
+    }
+
+    article h1 {
+        font-size: 28px;
+    }
+
+    article p {
+        font-size: 16px;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}

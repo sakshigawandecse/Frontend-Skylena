@@ -1,0 +1,24 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure full height usage */
+    overflow: hidden; /* Prevent body scroll */
+    width: 100%; /* Ensure full width usage */
+}
+
+iframe {
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height, adjusts to the viewport height */
+    border: none; /* No border for iframe */
+    object-fit: cover; /* Ensure content scales while maintaining aspect ratio */
+}
+
+/* Navbar styling */
+
+
+/* Media Query for devices with max width of 768px */
+@media (max-width: 768px) {
+    iframe {
+        height: 100vh; /* Keep height as 100vh for smaller screens */
+    }
+}
