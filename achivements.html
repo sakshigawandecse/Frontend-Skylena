@@ -1,0 +1,109 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="achivements.css">
+</head>
+<body>
+    <div class="slider">
+        <div class="slider-container">
+            <div class="slider-track">
+                <img src="Images/Achivements/1.jpg" alt="Image 1">
+                <img src="Images/Achivements/2.jpg" alt="Image 2">
+                <img src="Images/Achivements/3.jpg" alt="Image 3">
+                <img src="Images/Achivements/4.jpg" alt="Image 4">
+                <img src="Images/Achivements/5.jpg" alt="Image 5">
+                <img src="Images/Achivements/6.jpg" alt="Image 6">
+                <img src="Images/Achivements/7.jpg" alt="Image 7">
+                <img src="Images/Achivements/8.jpg" alt="Image 8">
+            </div>
+        </div>
+        <div class="slider-navigation">
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+        </div>
+    </div>
+    
+    <script>
+        const track = document.querySelector('.slider-track');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        const images = document.querySelectorAll('.slider-track img');
+        const totalImages = images.length;
+
+        let index = 0;
+        let isDragging = false;
+        let startX = 0;
+        let scrollLeft = 0;
+
+        // Update slide position
+        function updateSlider() {
+            const width = images[0].clientWidth * 2;  // Adjusting for two images per slide
+            track.style.transform = `translateX(-${index * width}px)`;
+        }
+
+        // Handle next button click
+        nextButton.addEventListener('click', () => {
+            if (index < totalImages / 2 - 1) {  // Check for 2 images per slide
+                index++;
+                updateSlider();
+            }
+        });
+
+        // Handle previous button click
+        prevButton.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+                updateSlider();
+            }
+        });
+
+        // Handle window resize for responsive adjustments
+        window.addEventListener('resize', updateSlider);
+
+        // Dragging functionality
+        track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+        });
+
+        track.addEventListener('mouseleave', () => {
+            isDragging = false;
+        });
+
+        track.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) * 2; // The speed of the dragging
+            track.scrollLeft = scrollLeft - walk;
+        });
+
+        // Mobile touch functionality
+        track.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+        });
+
+        track.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - track.offsetLeft;
+            const walk = (x - startX) * 2; // The speed of the dragging
+            track.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>

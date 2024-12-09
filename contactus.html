@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="contactus.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<section class="contact-section">
+  <h1>Contact Us</h1>
+  <p>We'd love to hear from you! Fill out the form below and we’ll get back to you shortly.</p>
+  
+  <div class="form-container">
+    <form id="contact-form">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Type your message here" required></textarea>
+      </div>
+      
+      <button type="submit" class="send-button">
+        <i class="fa fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+  </div>
+
+  <div class="contact-details">
+    <h2>Contact Details</h2>
+    <p>20-25, Sri Jeyam Plaza (TSJ), Shop No: 6, 2nd Floor, Dr. Radhakrishnan Road, 7th Street Extension, Gandhipuram, Coimbatore - 641 012, Tamil Nadu, INDIA.</p>
+    <p><strong>Email:</strong> <a href="mailto:admin@skylenainfotech.com">admin@skylenainfotech.com</a></p>
+    <p><strong>Website:</strong> <a href="https://skylenainfotech.com/">www.skylenainfotech.com</a></p>
+    <p><strong>Contact:</strong> <a href="tel:+916369170669">+91 63691 70669</a>, <a href="tel:+917795203926">+91 77952 03926</a>, <a href="tel:+918870484604">+91 88704 84604</a>, <a href="tel:+919945203749">+91 99452 03749</a></p>
+  </div>
+</section>
+
+<script>
+  document.querySelector('#contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = {
+      name: document.querySelector('#name').value,
+      email: document.querySelector('#email').value,
+      message: document.querySelector('#message').value,
+    };
+
+    fetch('http://localhost:3000/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(response => response.json())
+      .then(data => {
+        alert('Your message has been sent successfully!');
+        e.target.reset();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while sending your message.');
+      });
+  });
+</script>
+
+</body>
+</html>

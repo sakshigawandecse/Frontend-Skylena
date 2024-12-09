@@ -1,0 +1,689 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url("Images/img\ 4.jpg") no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.heading {
+    color: rgba(0, 0, 0, 0.63);
+}
+
+.home-container {
+    background: rgba(255, 255, 255, 0.86);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.478);
+    width: 80%;
+    max-width: 900px;
+    padding: 40px;
+    margin: 170px auto; /* Adjusted to push the container lower from the top */
+    text-align: center;
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    line-height: 1.6;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.home-container p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    background: #c2cfd2;
+    z-index: 100;
+    padding: 0 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    transform: translateX(10%); /* Moves the nav menu 10% to the left */
+}
+
+.nav-logo img.logo {
+    width: 400px;
+    height: auto;
+    margin-right: 10px;
+    position: relative;
+    top: 4px;
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu ul li {
+    list-style: none;
+    position: relative;
+}
+
+
+.nav-menu {
+    padding-left: 30px;  /* Adds 30px of space to the left of the menu */
+    padding-right: 30px; /* Adds 30px of space to the right of the menu */
+}
+
+
+.nav-menu ul li .link {
+    text-decoration: none;
+    font-weight: 600;
+    color: #080000;
+    font-size: 18px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+
+.link:hover,
+.active {
+    border-bottom: 2px solid #000000;
+}
+
+
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(194, 207, 210);
+    min-width: 350px;
+    flex-direction: column;
+    padding: 10px;
+    height: 180px;
+    transform: translateY(-2px);
+}
+
+.dropdown-content a {
+    color: #1d1a1a;
+    padding: 3px 6px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.9;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(95, 147, 160, 0.405);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-button .btn {
+    width: 130px;
+    height: 40px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(95, 147, 160, 0.405);
+}
+
+#registerBtn {
+    margin-left: 15px;
+}
+
+.auth-page {
+    background: url('Images/img\ 7.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.form-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 512px;
+    height: 420px;
+    overflow: hidden;
+    z-index: 2;
+    left: 50px;
+}
+
+.login-container {
+    position: absolute;
+    left: 4px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+}
+
+.register-container {
+    position: absolute;
+    right: -520px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+}
+
+.top span {
+    color: #ede3e3;
+    font-size: small;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.top span a {
+    font-weight: 500;
+    color: #ffffff;
+    margin-left: 5px;
+}
+
+header {
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 0 30px 0;
+}
+
+.two-forms {
+    display: flex;
+    gap: 10px;
+}
+
+.input-field {
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    padding: 0 10px 0 45px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.input-field:hover,
+.input-field:focus {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+::-webkit-input-placeholder {
+    color: #f9f9f9;
+}
+
+.input-box i {
+    position: relative;
+    top: -35px;
+    left: 17px;
+    color: #fffcfc;
+}
+
+.submit {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.682);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.submit:hover {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+.two-col {
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+    font-size: small;
+    margin-top: 10px;
+}
+
+.two-col .one {
+    display: flex;
+    gap: 5px;
+}
+
+.two label a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.two label a:hover {
+    text-decoration: underline;
+}
+
+
+/* Button Styling */
+.nav-button .btn {
+    width: 130px;
+    height: 40px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    transform: translateX(-50%); /* Moves the nav menu 10% to the left */
+}
+
+.btn:hover {
+    background: rgba(95, 147, 160, 0.405);
+}
+
+
+
+.nav-menu-btn {
+    display: none;
+}
+
+/* CSS Code */
+
+.otp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: 100;
+}
+
+.otp-box {
+    background-color: #f5f7fa; /* Light gray background */
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+}
+
+.otp-box header {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333; /* Darker header */
+    margin-bottom: 20px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+   
+    
+}
+/* Make OTP container visible */
+#otp-container {
+    display: block; /* Ensures container is visible */
+    /* Additional styling as needed */
+}
+
+/* Style for OTP input text and cursor color */
+.otp-input {
+    color: black; /* Text color */
+    caret-color: black; /* Cursor color */
+    background-color: white; /* Ensure the background is white for visibility */
+    border: 1px solid #ccc; /* Optional: add border for better visibility */
+    padding: 10px; /* Optional: add padding for aesthetics */
+    border-radius: 5px;  /* Cursor color */
+}
+
+.input-field {
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    padding: 0 10px 0 60px; /* Adjusted left padding to create more space for icon */
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    transition: .2s ease;
+}
+
+.input-field:focus {
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#countdown {
+    color: red;
+    font-size: 16px;
+    position: relative;
+    top: -10px; /* Move upwards */
+    text-align: center; /* Center aligns it within the OTP box */
+}
+
+.bx-key {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #007bff; /* Blue icon */
+}
+/* Resend otp link */
+
+        /* New styles for OTP message */
+        .otp-message {
+            margin: 10px 0;
+            font-size: 0.9em;
+            position: relative; /* Required to use top positioning */
+            top: -10px; /* Move the message up by 10px */
+            display: none; /* Hidden initially */
+            text-align: center;
+        }
+        .otp-message.success {
+            color: green; /* Success messages in green */
+        }
+        .otp-message.error {
+            color: red; /* Error messages in red */
+        }
+  
+
+
+
+.submit {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff; /* Blue button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+        /* Overlay styling */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent */
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+        }
+    
+
+
+        input[type="text"]:-webkit-autofill,
+        input[type="email"]:-webkit-autofill {
+            -webkit-text-fill-color: #fff !important; /* Text color */
+            caret-color: #fff !important; /* Cursor color */
+            font-size: 15px !important;
+            background: rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.2) inset !important; /* Ensures autofill background */
+            border-radius: 30px; /* Matches border-radius */
+            padding: 0 10px 0 60px;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+      
+        
+/* Responsive Styles */
+@media only screen and (max-width: 786px) {
+    .nav-button {
+        display: none;
+    }
+    
+
+    .nav-menu.responsive {
+        top: 120px;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: -800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 90vh;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
+        transition: 0.3s;
+        z-index: 1000;
+    }
+    .nav-menu ul li a {
+        font-size: 14px;  /* Decrease font size */
+        padding-bottom: 10px; /* Optionally adjust padding */
+    }
+    
+    .nav-menu ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-menu-btn {
+        display: block;
+    }
+
+    .nav-menu-btn i {
+        font-size: 25px;
+        color: #fff;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .nav-menu-btn i:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .wrapper {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: url("Images/img\ 4.jpg") no-repeat center center fixed;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .heading {
+        color: rgba(0, 0, 0, 0.63);
+    }
+
+    .container {
+        padding: 50px;
+        margin: 50px auto;
+        font-size: 18px;
+    }
+
+    .home-container {
+        background: none;
+        backdrop-filter: blur(30px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.478);
+        width: 80%;
+        max-width: 1200px;
+        padding: 70px;
+        margin: 40px auto;
+        text-align: center;
+        color: rgba(209, 237, 244, 0.87);
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 110vh;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+        background: rgb(194, 207, 210);
+        z-index: 100;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-logo img.logo {
+        max-width: 300px;
+        height: auto;
+        margin-right: 10px;
+    }
+
+ 
+
+    .nav-menu ul {
+        display: flex;
+        align-items: center;
+        
+       
+    }
+
+    .nav-menu ul li {
+        list-style: none;
+        position: relative;
+       
+    }
+
+    .nav-menu ul li .link {
+        text-decoration: none;
+        font-weight: 600;
+        color: #080000;
+        padding-bottom: 15px;
+        margin: 0 25px;
+    }
+
+    .link:hover, .active {
+        border-bottom: 2px solid #391212;
+    }
+
+    .sub-menu {
+        display: none;
+        position: absolute;
+        width: 350px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+    .dropdown:hover .sub-menu {
+        display: block;
+    }
+
+    .sub-menu ul {
+        padding: 10px;
+    }
+
+    .sub-menu ul li {
+        padding: 10px;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+
+    .sub-menu ul li a {
+        text-decoration: none;
+        color: #000;
+        display: block;
+    }
+
+    .sub-menu ul li a:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding-left: 10px;
+    }
+
+    .form-box {
+        width: 100%;
+        height: auto;
+    }
+
+    .service-menu {
+        position: relative;
+    }
+
+    .service-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%; /* Align dropdown to appear below the nav */
+        right: 0; /* Align dropdown to the right */
+        background-color: #f1f1f1;
+        min-width: 200px;
+        z-index: 999;
+    }
+
+    .service-menu:hover .service-dropdown {
+        display: block;
+    }
+
+    .about-us, .contact-us {
+        position: relative;
+        z-index: 1;
+    }
+}
