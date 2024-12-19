@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style5.css">
+    <link rel="stylesheet" href="nav.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Skylena</title>
+    <link rel="icon" type="image/png" href="Images/logo.png">
+</head>
+<body>
+    <div class="container internship">
+        
+    </div>
+    <article class="internship-content">
+        <h2>Internship Program</h2>
+        <p>
+            Our internship program aims to provide aspiring software developers, cloud engineers, 
+            and cybersecurity professionals with valuable industry exposure and practical experience. 
+            The internship program will include:
+        </p>
+        <ul>
+            <li><strong>Structured learning:</strong> Targeted training to enhance technical skills and knowledge.</li>
+            <li><strong>Real-world projects:</strong> Hands-on experience on real projects with mentor guidance.</li>
+            <li><strong>Collaboration opportunities:</strong> Collaboration with full-time employees and fellow interns.</li>
+            <li><strong>Performance evaluation:</strong> Regular feedback and performance tracking for improvement.</li>
+        </ul>
+    </article>
+
+    <div class="container corporate-training">
+        
+    </div>
+    <article class="corporate-training-content">
+        <h2>Corporate IT Training</h2>
+        <p>
+            Corporate IT training is essential for enhancing the technical skills of IT employees in any company. 
+            It ensures the workforce stays updated with the latest technologies and trends, leading to improved efficiency 
+            and innovation. This training includes adapting to new technologies, software updates, cybersecurity measures, 
+            and best practices.
+        </p>
+        <ul>
+            <li>Ensuring up-to-date skills with the latest industry standards.</li>
+            <li>Enhancing knowledge in software and systems relevant to their roles.</li>
+            <li>Adapting to new technologies and cybersecurity protocols.</li>
+        </ul>
+    </article>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <a href="Bar.html">
+                    <img src="Images/Logo img.png" alt="SkyLena Logo" class="logo">
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#Home" class="link active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="link">Services</a>
+                        <div class="dropdown-content">
+                            <a href="service1.html">Cloud Infrastructure & Implementation</a>
+                            <a href="service2.html">Cloud-Native Application Development</a>
+                            <a href="service3.html">Cloud Security Configuration</a>
+                            <a href="service4.html">Managed Services & Customer Experience</a>
+                            <a href="service5.html">Internship Program</a>
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html" class="link">About Us</a></li>
+                    <li><a href="achivements.html" class="link">Achievements</a></li>
+                    <li><a href="contactus.html" class="link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                <a href="login-register.html?form=login">
+                    <button class="btn white-btn">Sign In</button>
+                </a>
+                <a href="login-register.html?form=register">
+                    <button class="btn">Sign Up</button>
+                </a>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+    </div>
+<script>
+    function myMenuFunction() {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.toggle('responsive');
+    }
+</script>
+</body>
+</html>

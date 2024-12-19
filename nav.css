@@ -1,0 +1,522 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body & Background */
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    overflow: auto;
+    height: 100%;
+}
+
+/* Hide Scrollbars */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    scrollbar-width: none;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
+/* Heading Style */
+.heading {
+    color: rgba(0, 0, 0, 0.63);
+}
+
+/* Home Container */
+.home-container {
+    background: rgba(255, 255, 255, 0.86);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.478);
+    width: 90%;
+    max-width: 900px;
+    padding: 30px;
+    margin: 250px auto;
+    text-align: center;
+    color: rgb(34, 34, 34);
+    font-size: 15px;
+    line-height: 1.6;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Wrapper for Flex */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+}
+
+/* Navigation Bar */
+.nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    background: #c2cfd2;
+    z-index: 100;
+    padding: 0 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    z-index: 1; /* Keep logo behind other elements if needed */
+}
+
+.nav-logo img.logo {
+    width: 400px;
+    height: auto;
+    margin-left: 10%;
+    position: relative;
+    top: 4px;
+}
+.nav-logo .logo {
+    width: 150px; /* Default size */
+    height: auto;
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu ul li {
+    list-style: none;
+    position: relative;
+}
+
+.nav-menu {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.nav-menu ul li .link {
+    text-decoration: none;
+    font-weight: 600;
+    color: #080000;
+    font-size: 18px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.link:hover,
+.active {
+    border-bottom: 2px solid #000000;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(194, 207, 210);
+    min-width: 350px;
+    flex-direction: column;
+    padding: 10px;
+    height: 180px;
+    transform: translateY(-2px);
+}
+
+.dropdown-content a {
+    color: #1d1a1a;
+    padding: 3px 6px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.9;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(95, 147, 160, 0.405);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Button Styling */
+.nav-button .btn {
+    width: 130px;
+    height: 40px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    transform: translateX(-50%); /* Moves the nav menu 10% to the left */
+}
+.nav-menu-btn {
+    display: none; /* Hidden by default */
+}
+.btn:hover {
+    background: rgba(95, 147, 160, 0.405);
+}
+
+/* Form Styles */
+.auth-page {
+    background: url('Images/img 7.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+/* Form Box */
+.form-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 512px;
+    height: 420px;
+    overflow: hidden;
+    z-index: 2;
+    left: 50px;
+}
+
+.login-container {
+    position: absolute;
+    left: -20px; /* Shift 20px to the left */
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+}
+
+.register-container {
+    position: absolute;
+    right: -540px; /* Adjust this value to align */
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+}
+/* Form Inputs */
+.input-field {
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    padding: 0 10px 0 45px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.input-field:hover,
+.input-field:focus {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+::-webkit-input-placeholder {
+    color: #f9f9f9;
+}
+
+/* Submit Button */
+.submit {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.682);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.submit:hover {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 786px) {
+
+
+    html {
+        overflow: hidden;  /* Hides the scrollbar */
+        height: 100%; /* Ensure full height */
+    }
+
+    body {
+        overflow: auto;  /* Allows scrolling */
+        height: 100%; /* Ensure full height */
+    }
+ 
+           /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+           body::-webkit-scrollbar {
+            display: none;  /* Hides the scrollbar */
+        }
+    
+        /* Hide scrollbar for Firefox */
+        body {
+            scrollbar-width: none;  /* Hides the scrollbar */
+        }
+    
+        /* Hide scrollbar for Internet Explorer and Edge */
+        body {
+            -ms-overflow-style: none;  /* Hides the scrollbar */
+        }
+
+    .nav-button {
+        display: none;
+    }
+
+    .nav-menu.responsive {
+        top: 120px;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: -800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        left: 0%;
+        width: 100%;
+        height: 60vh;
+        background-color: rgb(194, 207, 210); /* Optional if you want a semi-transparent background */
+        transition: 0.3s;
+        z-index: 1000;
+    }
+
+    .nav-menu ul li a {
+        font-size: 14px;  /* Decrease font size */
+        padding-bottom: 10px; 
+        gap: 10px;/* Optionally adjust padding */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 0;
+    }
+
+    .nav-logo {
+        padding: 5px;
+        margin-left: -10%;
+        z-index: 1; /* Ensure it doesn't block the nav button */
+    }
+    .nav-logo .logo {
+        width: 90px; /* Reduce size for smaller screens */
+    }
+
+    .nav-menu-btn {
+        display: block;
+    }
+
+    .nav-menu-btn i {
+        font-size: 25px;
+        color: #fff;
+        padding: 10px;
+        background: rgba(0, 19, 30, 0.2);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .nav-menu-btn i:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+        position: relative; /* Aligns dropdown relative to parent */
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 190%; /* Places dropdown directly below the "Services" link */
+        left: 50%; /* Centers dropdown horizontally relative to the parent */
+        transform: translateX(-50%); /* Aligns the center of the dropdown with the parent */
+        width: 80%; /* Adjust width (e.g., 80% of the parent or a fixed size like 300px) */
+        max-width: 300px;
+        height: auto; /* Automatically adjusts to content height */
+        min-height: 150px;  /* Add a maximum width for better control */
+        background-color: rgb(194, 207, 210); /* Solid background */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        border: 1px solid #ddd;
+        padding: 15px 0; /* Adjust padding for spacing inside the dropdown */
+        border-radius: 5px; /* Adds rounded corners */
+       /* Ensures a minimum height for the dropdown box */
+    }
+    /* Ensure dropdown is shown when clicked */
+    .dropdown.open .dropdown-content {
+        display: block;
+    }
+    
+    /* Style links inside dropdown */
+    .dropdown-content a {
+        display: block;
+        color: #000;
+        text-decoration: none;
+        padding: 10px 20px; /* Adjust link spacing */
+        font-size: 16px; /* Increase font size for better readability */
+    }
+    
+    .dropdown-content a:hover {
+        background-color: rgba(95, 147, 160, 0.405);
+    }
+}
+@media only screen and (max-width: 540px) {
+
+    html {
+        overflow: hidden;
+        height: 100%;
+    }
+
+    body {
+        overflow: auto;
+        height: 100%;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    body {
+        scrollbar-width: none;
+    }
+
+    body {
+        -ms-overflow-style: none;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Ensures the logo is centered */
+    }
+
+    .nav-logo img.logo {
+        max-width: 180px; /* Adjust size for mobile */
+        height: auto;
+        margin-right: 15px;
+        margin-top: 5px;
+    }
+
+    .nav-menu.responsive {
+        top: 60px;  /* Adjust the position for better visibility */
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: -800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 90vh;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(20px);
+        transition: 0.3s;
+        z-index: 1000;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 0;
+    }
+
+    .nav-menu ul li {
+        list-style: none;
+        margin: 15px 0;
+    }
+
+    .nav-menu ul li .link {
+        text-decoration: none;
+        font-weight: 600;
+        color: #080000;
+        padding: 10px 0;
+        font-size: 16px;
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 190%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        max-width: 300px;
+        height: auto;
+        min-height: 150px;
+        background-color: rgb(194, 207, 210);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        border: 1px solid #ddd;
+        padding: 15px 0;
+        border-radius: 5px;
+    }
+
+    .dropdown.open .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        display: block;
+        color: #000;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .dropdown-content a:hover {
+        background-color: rgba(95, 147, 160, 0.405);
+    }
+
+    /* Nav button styles */
+    .nav-menu-btn {
+        display: block;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .nav-menu-btn i {
+        font-size: 28px;
+    }
+
+    .nav-menu-btn:hover {
+        color: #333;
+    }
+} 

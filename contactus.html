@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="contactus.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+<section class="contact-section">
+  <h1>Contact Us</h1>
+  <p>We'd love to hear from you! Fill out the form below and we’ll get back to you shortly.</p>
+  
+  <div class="form-container">
+    <form id="contact-form">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Type your message here" required></textarea>
+      </div>
+      
+      <button type="submit" class="send-button">
+        <i class="fa fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+  </div>
+
+  <div class="contact-details">
+    <h2>Contact Details</h2>
+    <p>20-25, Sri Jeyam Plaza (TSJ), Shop No: 6, 2nd Floor, Dr. Radhakrishnan Road, 7th Street Extension, Gandhipuram, Coimbatore - 641 012, Tamil Nadu, INDIA.</p>
+    <p><strong>Email:</strong> <a href="mailto:admin@skylenainfotech.com">admin@skylenainfotech.com</a></p>
+    <p><strong>Website:</strong> <a href="https://skylenainfotech.com/">www.skylenainfotech.com</a></p>
+    <p><strong>Contact:</strong> <a href="tel:+916369170669">+91 63691 70669</a>, <a href="tel:+917795203926">+91 77952 03926</a>, <a href="tel:+918870484604">+91 88704 84604</a>, <a href="tel:+919945203749">+91 99452 03749</a></p>
+  </div>
+</section>
+
+<script>
+  document.querySelector('#contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = {
+      name: document.querySelector('#name').value,
+      email: document.querySelector('#email').value,
+      message: document.querySelector('#message').value,
+    };
+
+    fetch('http://localhost:3000/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(response => response.json())
+      .then(data => {
+        alert('Your message has been sent successfully!');
+        e.target.reset();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while sending your message.');
+      });
+  });
+</script>
+
+<script>
+  const track = document.querySelector('.slider-track');
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
+  const images = document.querySelectorAll('.slider-track img');
+  const totalImages = images.length;
+
+  let index = 0;
+  let isDragging = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  // Update slide position
+  function updateSlider() {
+      const width = images[0].clientWidth * 2;  // Adjusting for two images per slide
+      track.style.transform = `translateX(-${index * width}px)`;
+  }
+
+  // Handle next button click
+  nextButton.addEventListener('click', () => {
+      if (index < totalImages / 2 - 1) {  // Check for 2 images per slide
+          index++;
+          updateSlider();
+      }
+  });
+
+  // Handle previous button click
+  prevButton.addEventListener('click', () => {
+      if (index > 0) {
+          index--;
+          updateSlider();
+      }
+  });
+
+  // Handle window resize for responsive adjustments
+  window.addEventListener('resize', updateSlider);
+
+  // Dragging functionality
+  track.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+  });
+
+  track.addEventListener('mouseleave', () => {
+      isDragging = false;
+  });
+
+  track.addEventListener('mouseup', () => {
+      isDragging = false;
+  });
+
+  track.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 2; // The speed of the dragging
+      track.scrollLeft = scrollLeft - walk;
+  });
+
+  // Mobile touch functionality
+  track.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      startX = e.touches[0].pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+  });
+
+  track.addEventListener('touchend', () => {
+      isDragging = false;
+  });
+
+  track.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.touches[0].pageX - track.offsetLeft;
+      const walk = (x - startX) * 2; // The speed of the dragging
+      track.scrollLeft = scrollLeft - walk;
+  });
+</script>
+<div class="wrapper">
+  <nav class="nav">
+      <div class="nav-logo">
+          <a href="Bar.html">
+              <img src="Images/Logo img.png" alt="SkyLena Logo" class="logo">
+          </a>
+      </div>
+      <div class="nav-menu" id="navMenu">
+          <ul>
+              <li><a href="#Home" class="link active">Home</a></li>
+              <li class="dropdown">
+                  <a href="#" class="link">Services</a>
+                  <div class="dropdown-content">
+                      <a href="service1.html">Cloud Infrastructure & Implementation</a>
+                      <a href="service2.html">Cloud-Native Application Development</a>
+                      <a href="service3.html">Cloud Security Configuration</a>
+                      <a href="service4.html">Managed Services & Customer Experience</a>
+                      <a href="service5.html">Internship Program</a>
+                  </div>
+              </li>
+              <li><a href="aboutus.html" class="link">About Us</a></li>
+              <li><a href="achivements.html" class="link">Achievements</a></li>
+              <li><a href="contactus.html" class="link">Contact Us</a></li>
+          </ul>
+      </div>
+      <div class="nav-button">
+          <a href="login-register.html?form=login">
+              <button class="btn white-btn">Sign In</button>
+          </a>
+          <a href="login-register.html?form=register">
+              <button class="btn">Sign Up</button>
+          </a>
+      </div>
+      <div class="nav-menu-btn">
+          <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+      </div>
+  </nav>
+</div>
+<script>
+function myMenuFunction() {
+  const navMenu = document.querySelector('.nav-menu');
+  navMenu.classList.toggle('responsive');
+}
+</script>
+
+
+</body>
+</html>

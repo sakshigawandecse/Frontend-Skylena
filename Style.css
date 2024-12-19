@@ -1,0 +1,177 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    margin: 8px;
+}
+
+/* Container with background image */
+.container {
+    width: 100%;
+    height: 670px;
+    background-image: url('Images/Services/img 8.jpeg'); 
+    background-position: 20% center; /* Shift image to the right */
+    background-size: cover; /* Ensure the image covers the container */
+    background-attachment: fixed; /* Keep the background fixed */
+    display: flex;
+    padding-left: 20px;
+    box-sizing: border-box;
+    color: white;
+}
+
+
+
+.container h1 {
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    margin-top: 150px; 
+    padding-left: 60px;
+  
+    
+}
+
+/* Article section */
+article {
+    width: 80%;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.6;
+}
+
+article h1, article h2 {
+    font-size: 32px;
+    color: #333;
+}
+
+article p, article ul {
+    font-size: 18px;
+    color: #555;
+    text-align: justify;
+}
+
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.image-center {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+     
+}
+.image-center img {
+    width: 80%; /* Adjust width to 80% of its container */
+    max-width: 1000px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.image-container img {
+    width: 100%;                /* Make each image responsive */
+    max-width: 500px;           /* Set maximum width for larger screens */
+    height: auto;               /* Maintain aspect ratio */
+    margin: 20px;               /* Add space between images */
+    border-radius: 8px;         /* Optional: add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        height: 600px;
+        background-image: url('Images/Services/img 8.jpeg'); 
+        background-position: 20% center; /* Shift image to the right */
+        background-size: cover; /* Ensure the image covers the container */
+        background-attachment: fixed; /* Keep the background fixed */
+        display: flex;
+        padding-left: 20px;
+        box-sizing: border-box;
+        color: white;
+    }
+    
+    
+    .container h1 {
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        margin-top: 150px; 
+        padding-left: 3%;
+    }
+    
+    article {
+        width: 90%;
+        padding: 20px;
+    }
+
+    article h2 {
+        font-size: 28px;
+    }
+
+    article p, article ul {
+        font-size: 16px;
+    }
+
+    .image-center img {
+        max-width: 100%; /* Allow images to take full width on mobile */
+        margin: 10px 0;   /* Add less margin for mobile */
+    }
+
+    .form-box {
+        width: 90%; /* Adjust form width for smaller screens */
+    }
+}
+@media (max-width: 540px) {
+    .container {
+        width: 100%;
+        height: 600px;
+        background-image: url('Images/Services/img 8.jpeg'); 
+        background-position: right 30px center; /* Shift image to the right */
+        background-size: cover;
+        background-attachment: fixed;
+        display: flex;
+        padding-left: 20px; /* Reduced padding for smaller screens */
+        box-sizing: border-box;
+        color: white;
+    }
+    
+    
+    .container h1 {
+        font-size: 24px; /* Adjust font size for smaller screens */
+        font-weight: bold;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        margin-top: 150px; /* Moves heading down to avoid crowding */
+    }
+    
+    article {
+        width: 95%; /* Reduce article width for better fit on smaller screens */
+        padding: 15px; /* Less padding for compact layout */
+    }
+
+    article h2 {
+        font-size: 24px; /* Smaller heading size */
+    }
+
+    article p, article ul {
+        font-size: 14px; /* Smaller text size for readability */
+    }
+
+    .image-center img {
+        max-width: 100%; /* Allow images to take full width on mobile */
+        margin: 5px 0;   /* Add minimal margin for compact spacing */
+    }
+
+    .form-box {
+        width: 100%; /* Full width forms for small screens */
+    }
+}
+
+
+

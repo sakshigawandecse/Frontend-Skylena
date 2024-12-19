@@ -1,0 +1,163 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 7%;
+}
+
+.about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+}
+
+.about-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+.about-section h2 {
+    font-size: 24px; /* Slightly larger heading for emphasis */
+    font-weight: bold; /* Makes the text stand out */
+    margin: 20px 0; /* Adds spacing above and below */
+    color: #ffffff; /* Ensures readability on the dark background */
+    text-align: center; /* Centers the heading text */
+    letter-spacing: 1px; /* Adds spacing between letters for better visual balance */
+}
+.about-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+/* Team Section */
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    margin: 40px auto;
+    gap: 30px; /* Space between containers */
+    padding: 0 10px;
+    max-width: 1200px;
+}
+
+.column {
+    flex: 1 1 calc(45% - 30px); /* Responsive width: roughly 45% with spacing */
+    max-width: 550px; /* Prevents overly large cards */
+    background-color: #fff;
+    border-radius: 12px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.column:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card1 img {
+    width: 100%;
+    height: auto;
+    border-bottom: 4px solid #474e5d;
+}
+
+.card1 .container {
+    padding: 20px;
+    text-align: center;
+}
+
+.card1 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #474e5d;
+}
+
+.card1 p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 20px 0;
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 16px;
+}
+/* Responsive Design */
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding-top: 17%; /* Adjusts top padding for a balanced layout */
+    }
+    .about-section h2 {
+        font-size: 24px; /* Slightly larger heading for emphasis */
+        font-weight: bold; /* Makes the text stand out */
+        margin: 20px 0; /* Adds spacing above and below */
+        color: #ffffff; /* Ensures readability on the dark background */
+        text-align: center; /* Centers the heading text */
+        letter-spacing: 2px; /* Adds spacing between letters for better visual balance */
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 20px; /* Increased gap for a more breathable layout */
+        align-items: center; /* Centers all containers */
+    }
+
+    .column {
+        flex: 1 1 auto; /* Allow cards to scale dynamically */
+        max-width: 260px; /* Restrict maximum width for a compact look */
+        background-color: #f9f9f9; /* Subtle background color for contrast */
+        border: 1px solid #ddd; /* Adds a border for structure */
+        border-radius: 10px; /* Rounded corners for a sleek design */
+        overflow: hidden; /* Ensures no content spills out of the card */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+        margin: 0 auto; /* Centers the container */
+    }
+
+    .card1 {
+        height: auto; /* Cards adjust height dynamically */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px; /* Adds internal spacing */
+    }
+
+    .card1 img {
+        width: 100%;
+        height: 120px; /* Restrict image height */
+        object-fit: cover; /* Keeps aspect ratio intact */
+        border-bottom: 1px solid #ddd; /* Separate the image from text content */
+    }
+
+    .card1 .container {
+        padding: 10px; /* Adds spacing inside the card */
+    }
+
+    .card1 h2 {
+        font-size: 16px; /* Compact heading size */
+        margin: 10px 0;
+        color: #333; /* Darker heading color for contrast */
+        text-align: center;
+    }
+
+    .card1 p {
+        font-size: 14px; /* Smaller font size for compact text */
+        line-height: 1.4; /* Adjust line height for readability */
+        color: #666; /* Softer text color */
+        text-align: center;
+    }
+}
+
+

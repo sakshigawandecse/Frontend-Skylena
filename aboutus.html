@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="style6.css"> <!-- Link to style6.css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="Images/logo.png">
+</head>
+<body>
+    <div class="about-section">
+        <h1>About Us</h1>
+        <p>SkyLena Info Technology is a leading cloud service and cybersecurity company, offering comprehensive solutions to small and medium-sized businesses across India and globally. We specialize in cloud consulting, infrastructure design, migration, deployment, and security, with a focus on customer experience products. Our expertise spans cloud platforms like AWS, Azure, and GCP, ensuring scalability and reliability. Additionally, we provide advanced cybersecurity services, including penetration testing, SIEM, endpoint security, and managed services. With offices in India for marketing and implementation and operations in Sydney for monitoring, we deliver end-to-end cloud and security solutions.</p>
+    </div>
+
+    <h2 style="text-align:center">Our Team</h2>
+    <div class="row">
+        <!-- First Container -->
+        <div class="column">
+            <div class="card1">
+                <img src="Images/R1.jpg" alt="Jane" style="width:100%">
+                <div class="container"><br>
+                    <h2 align="center">Team</h2>
+                    <p>With over 10 years experience in the Cloud industry, we lead the market with passion and expertise.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Container -->
+        <div class="column">
+            <div class="card1">
+                <img src="Images/r5.png" alt="John" style="width:100%">
+                <div class="container"><br><br><br>
+                    <h2 align="center">Cloud Certification</h2>
+                    <p>Brilliant teamwork for your Certified Career growth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <a href="Bar.html">
+                    <img src="Images/Logo img.png" alt="SkyLena Logo" class="logo">
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#Home" class="link active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="link">Services</a>
+                        <div class="dropdown-content">
+                            <a href="service1.html">Cloud Infrastructure & Implementation</a>
+                            <a href="service2.html">Cloud-Native Application Development</a>
+                            <a href="service3.html">Cloud Security Configuration</a>
+                            <a href="service4.html">Managed Services & Customer Experience</a>
+                            <a href="service5.html">Internship Program</a>
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html" class="link">About Us</a></li>
+                    <li><a href="achivements.html" class="link">Achievements</a></li>
+                    <li><a href="contactus.html" class="link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                <a href="login-register.html?form=login">
+                    <button class="btn white-btn">Sign In</button>
+                </a>
+                <a href="login-register.html?form=register">
+                    <button class="btn">Sign Up</button>
+                </a>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+    </div>
+<script>
+    function myMenuFunction() {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.toggle('responsive');
+    }
+</script>
+
+   
+</body>
+</html>
